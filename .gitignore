@@ -1,0 +1,6 @@
+bin
+Makefile
+pkg
+src/github.com/
+src/config/auto_config.go
+conf/
