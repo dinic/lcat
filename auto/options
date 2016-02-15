@@ -1,0 +1,45 @@
+help=no
+LCAT_TEST=no
+
+LCAT_PREFIX=
+LCAT_LOG_DIR=
+LCAT_BIN_DIR=
+LCAT_CONF_DIR=
+
+opt=
+
+for option
+do
+    opt="$opt `echo $option | sed -e \"s/\(--[^=]*=\)\(.* .*\)/\1'\2'/\"`"
+    case "$option" in
+        --*=*) value=`echo "$option" | sed -e 's/[-_a-zA-Z0-9]*=//'` ;;
+        *) value="" ;;
+    esac
+
+    case "$option" in
+        --help)                 help=yes;;
+		--test)					LCAT_TEST=yes;;
+        --prefix=*)             LCAT_PREFIX="$value";;
+        --log-dir=*)            LCAT_LOG_DIR="$value";;
+        --bin-dir=*)            LCAT_BIN_DIR="$value";;
+		--conf-dir=*)           LCAT_CONF_DIR="$value";;
+        *)
+            echo "$0: error: invalid option \"$option\""
+            exit 1
+        ;;
+    esac
+
+done
+
+if [ $help = yes ]; then
+cat << END
+
+    --help                  print this message
+    --test					run unit test
+    --prefix=PATH           set installation prefix
+    --log-dir=PATH          set log dir
+    --bin-dir=PATH          set bin dir
+    --conf-dir=PATH         set conf dir
+END
+	exit 1
+fi

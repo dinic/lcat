@@ -1,0 +1,11 @@
+export GOAPTH=$LCAT_PWD
+
+cat << END >> Makefile
+
+test:
+	export GOPATH=$LCAT_ROOT; go test -v cat
+	export GOPATH=$LCAT_ROOT; go test -v collector
+	export GOPATH=$LCAT_ROOT; go test -v config
+	export GOPATH=$LCAT_ROOT; go test -v msg
+	export GOPATH=$LCAT_ROOT; go test -v transfer
+END

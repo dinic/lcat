@@ -1,0 +1,14 @@
+echo "auto config ..."
+
+LCAT_AUTO_CONFIG="${LCAT_SRC}/config/auto_config.go"
+echo "creating $LCAT_AUTO_CONFIG"
+
+cat << END > $LCAT_AUTO_CONFIG
+package config
+
+const (
+	LcatPrefix  = "$LCAT_PREFIX/"
+	LcatLogDir  = "$LCAT_LOG_DIR/"
+	LcatConfDir = "$LCAT_CONF_DIR/"
+)
+END

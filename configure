@@ -1,0 +1,25 @@
+#! /bin/sh
+
+cd `dirname $0`
+
+LCAT_ROOT=`pwd`
+LCAT_SRC=$LCAT_ROOT/"src"
+
+. auto/options
+
+LCAT_PREFIX=${LCAT_PREFIX:-$LCAT_ROOT}
+
+if [ $LCAT_TEST = no ]; then
+	LCAT_PREFIX=${LCAT_PREFIX:-$LCAT_ROOT}
+else
+	LCAT_PREFIX=${LCAT_PREFIX:-$LCAT_ROOT}
+fi
+
+LCAT_LOG_DIR=${LCAT_LOG_DIR:-$LCAT_PREFIX/logs}
+LCAT_BIN_DIR=${LCAT_BIN_DIR:-$LCAT_PREFIX/bin}
+LCAT_CONF_DIR=${LCAT_CONF_DIR:-$LCAT_PREFIX/conf}
+
+. auto/libs
+. auto/config
+. auto/makefile
+. auto/unit_test
