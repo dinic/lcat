@@ -1,2 +1,2 @@
-# lcat
-Distributed Log System for Web Serivce
+# lcat (Log Cat)
+Distributed Log System for access log
